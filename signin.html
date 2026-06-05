@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: #ECDFCC;
+            background-color: #181C14;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 1rem 0;
+            text-align: right;
+            padding-right: 10%;
+        }
+
+        button,
+        input[type="submit"] {
+            font-size: 1rem;
+            border: 2px solid #ECDFCC;
+            border-radius: 10px;
+            color: #ffffff;
+            background-color: #181C14;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+        }
+
+        button:hover,
+        input[type="submit"]:hover {
+            background-color: #ECDFCC;
+            color: #181C14;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 5vh auto;
+            padding: 2rem;
+            background-color: #282C22;
+            border: 2px solid #ECDFCC;
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ECDFCC;
+            border-radius: 5px;
+            background-color: #181C14;
+            color: #ECDFCC;
+            font-family: inherit;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ECDFCC;
+            box-shadow: 0 0 5px rgba(236, 223, 204, 0.5);
+        }
+
+        .info {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+            font-size: 1rem;
+        }
+
+        .message.success {
+            background-color: #1c4620;
+            border: 1px solid #58d68d;
+            color: #baf2c1;
+        }
+
+        .message.error {
+            background-color: #401d1d;
+            border: 1px solid #d65c5c;
+            color: #ffc9c9;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                text-align: center;
+                padding-right: 0;
+            }
+
+            .container {
+                margin: 3vh 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button onclick="location.href='index.html'">Home</button>
+        <button onclick="location.href='about.html'">About</button>
+        <button onclick="location.href='contact.html'">Contact</button>
+        <button onclick="location.href='signin.html'">Sign In</button>
+    </nav>
+
+    <div class="container">
+        <h1>Sign In</h1>
+        <form id="signin-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Enter your password" required>
+            </div>
+            <input type="submit" value="Sign In">
+        </form>
+        <div class="message" id="message"></div>
+        <div class="info">This sign-in page is a front-end demo and does not connect to a server.</div>
+    </div>
+
+    <script>
+        const form = document.getElementById('signin-form');
+        const messageBox = document.getElementById('message');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!email || !password) {
+                showMessage('Please enter both email and password.', 'error');
+                return;
+            }
+
+            if (email.includes('@') && password.length >= 6) {
+                showMessage('Signed in successfully. Welcome back!', 'success');
+            } else {
+                showMessage('Enter a valid email and a password with at least 6 characters.', 'error');
+            }
+        });
+
+        function showMessage(text, type) {
+            messageBox.textContent = text;
+            messageBox.className = `message ${type}`;
+            messageBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

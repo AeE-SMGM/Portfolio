@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - About</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: #ECDFCC;
+            background-color: #181C14;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 1rem 0;
+            text-align: right;
+            padding-right: 10%;
+        }
+
+        button {
+            font-size: 1rem;
+            border: 2px solid #ECDFCC;
+            border-radius: 10px;
+            color: #ffffff;
+            background-color: #181C14;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+        }
+
+        button:hover {
+            background-color: #ECDFCC;
+            color: #181C14;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 5vh 0;
+            animation: fadeIn 2s ease;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin: 10vh 0 5vh 0;
+            animation: fadeIn 2s ease;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: justify;
+            font-size: 1.1rem;
+            animation: fadeIn 2s ease;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .resume {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+            animation: fadeIn 3s ease;
+            border-bottom: 1px solid #ECDFCC;
+            padding-bottom: 2rem;
+        }
+
+        .education {
+            flex: 2;
+            padding-right: 2rem;
+        }
+
+        .education-year {
+            flex: 1;
+            text-align: right;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .education p {
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .education .degree {
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .education .institution {
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .education .year {
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .resume {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .education-year {
+                text-align: left;
+                margin-top: 1rem;
+            }
+            nav {
+                text-align: center;
+                padding-right: 0;
+            }
+            h1, h2 {
+                font-size: 2rem;
+            }
+            .content {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button id="home" onclick="location.href='index.html'">Home</button>
+        <button id="about" onclick="location.href='about.html'">About</button>
+        <button id="contact" onclick="location.href='contact.html'">Contact</button>
+        <button id="signin" onclick="location.href='signin.html'">Sign In</button>
+    </nav>
+
+    <h1>About Me</h1>
+
+    <div class="content">
+        <p>
+            Hi! I'm Shiela Marie Mutia, an Aerospace Engineering student with a passion for flight and space exploration. I have always been fascinated by the mechanics of how things work and run.
+        </p>
+        <p>
+            In my academic journey, I have gained knowledge in aerodynamics, propulsion systems, and structural analysis. I enjoy working on projects that challenge my problem-solving skills and allow me to apply theoretical concepts in practical scenarios.
+        </p>
+        <p>
+            Some of my skills include proficiency in Solidworks design and simulation as well as strong analytical and teamwork abilities.
+        </p>
+    </div>
+
+    <h2>Education</h2>
+
+    <div class="resume">
+        <div class="education">
+            <p class="degree">Bachelor of Science in Aerospace Engineering</p>
+            <p class="institution">Batangas State University - The National Engineering University</p>
+        </div>
+        <div class="education-year">
+            <p class="year">Expected Graduation: August 2026</p>
+        </div>
+    </div>
+
+    <div class="resume">
+        <div class="education">
+            <p class="degree">Senior High School - Science, Technology, Engineering, and Mathematics (STEM) Strand</p>
+            <p class="institution">Dr. Juan A. Pastor Integrated National High School</p>
+        </div>
+        <div class="education-year">
+            <p class="year">2020-2022</p>
+        </div>
+    </div>
+
+    <div class="resume">
+        <div class="education">
+            <p class="degree">Junior High School</p>
+            <p class="institution">LCC Silvercrest School</p>
+        </div>
+        <div class="education-year">
+            <p class="year">2016-2020</p>
+        </div>
+    </div>
+
+    <h2>Seminars Attended</h2>
+
+    <div class="resume">
+        <div class="education">
+            <p class="degree">On-The-Job Training</p>
+            <p class="institution">Advance Aviation Services</p>
+        </div>
+        <div class="education-year">
+            <p class="year">August 2025 - October 2025</p>
+        </div>
+    </div>
+
+        <div class="resume">
+        <div class="education">
+            <p class="degree">PINAS Batangas Workshop</p>
+            <p class="institution">Philippine Space Agency</p>
+        </div>
+        <div class="education-year">
+            <p class="year">September 2025</p>
+        </div>
+    </div>
+
+    <div class="resume">
+        <div class="education">
+            <p class="degree">Strategic Education Towards Excellence in Data Science (SEEDS) Program: Satellite Image Processing and Mapping</p>
+            <p class="institution">Digital Transformation Center</p>
+        </div>
+        <div class="education-year">
+            <p class="year">August 2025</p>
+        </div>
+    </div>
+
+    <div class="resume">
+        <div class="education">
+            <p class="degree">Basic Occupational Safety and Hazard SO2</p>
+            <p class="institution">1Beso</p>
+        </div>
+        <div class="education-year">
+            <p class="year">November 2024</p>
+        </div>
+    </div>
+
+     <div class="resume">
+        <div class="education">
+            <p class="degree">Flight Planning & Dispatch</p>
+            <p class="institution">Advance Aviation Institute</p>
+        </div>
+        <div class="education-year">
+            <p class="year">November 2024
+            </p>
+        </div>
+    </div>
+</body>
+</html>

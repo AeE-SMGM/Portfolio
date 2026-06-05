@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: #ECDFCC;
+            background-color: #181C14;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            padding: 1rem 0;
+            text-align: right;
+            padding-right: 10%;
+        }
+
+        button {
+            font-size: 1rem;
+            border: 2px solid #ECDFCC;
+            border-radius: 10px;
+            color: #ffffff;
+            background-color: #181C14;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+        }
+
+        button:hover {
+            background-color: #ECDFCC;
+            color: #181C14;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 5vh 0;
+            animation: fadeIn 2s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeIn 3s ease;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .contact-form {
+            background-color: #282C22;
+            border: 2px solid #ECDFCC;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ECDFCC;
+            border-radius: 5px;
+            background-color: #181C14;
+            color: #ECDFCC;
+            font-family: inherit;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #ECDFCC;
+            box-shadow: 0 0 5px rgba(236, 223, 204, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #181C14;
+            border: 2px solid #ECDFCC;
+            color: #ECDFCC;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #ECDFCC;
+            color: #181C14;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                text-align: center;
+                padding-right: 0;
+            }
+            .container {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .contact-form {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button id="home" onclick="location.href='index.html'">Home</button>
+        <button id="about" onclick="location.href='about.html'">About</button>
+        <button id="contact" onclick="location.href='contact.html'">Contact</button>
+        <button id="signin" onclick="location.href='signin.html'">Sign In</button>
+    </nav>
+
+    <h1>Contact Me</h1>
+
+    <div class="container">
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>Feel free to reach out for collaborations, inquiries, or just to say hello!</p>
+            <p>Email: shielamariemutia@gmail.com</p>
+            <p>Phone: 09947014828</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/public-profile/settings/?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BQGjkeaW3RDiplIwka8KN1A%3D%3D" style="color: #ECDFCC;">Shiela Marie Mutia</a></p>
+        </div>
+
+        <form
+  action="https://formspree.io/f/xjkppwey"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <button type="submit">Send</button>
+</form>
+    </div>
+</body>
+</html>
