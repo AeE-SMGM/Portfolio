@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Shiela Marie Mutia, Aerospace Engineer.">
+  <title>Shiela Marie Mutia | Aerospace Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f7f1e9;
+      --paper: #fffdf9;
+      --ink: #171717;
+      --muted: #6d665f;
+      --brown: #8b684d;
+      --brown-dark: #624735;
+      --line: #dfd2c4;
+      --accent: #c9a47d;
+      --shadow: 0 18px 50px rgba(83, 61, 43, .10);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(201,164,125,.12), transparent 20%),
+        radial-gradient(circle at 92% 24%, rgba(201,164,125,.10), transparent 22%),
+        var(--cream);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,241,233,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(139,104,77,.14);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 40px));
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .brand span { color: var(--brown); }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: .9rem;
+      font-weight: 600;
+      color: #49433e;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover { color: var(--brown); }
+
+    .nav-cta {
+      padding: 10px 17px;
+      border: 1px solid var(--brown);
+      border-radius: 999px;
+      color: var(--brown-dark) !important;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    section {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+      padding: 105px 0;
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.08;
+      margin: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      letter-spacing: -.055em;
+      max-width: 700px;
+    }
+
+    .hero h1 span { color: var(--brown); }
+
+    .hero-sub {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      margin: 25px 0 32px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid var(--brown);
+      font-weight: 700;
+      font-size: .9rem;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button.primary {
+      background: var(--brown-dark);
+      color: white;
+      border-color: var(--brown-dark);
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,.55);
+      color: var(--brown-dark);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 580px;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      border-radius: 50%;
+      background: #eadccf;
+      right: 15px;
+      top: 45px;
+    }
+
+    .portrait {
+      position: relative;
+      width: min(390px, 80%);
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      border: 9px solid rgba(255,253,249,.85);
+      z-index: 2;
+    }
+
+    .aviation-card {
+      position: absolute;
+      z-index: 3;
+      width: 210px;
+      right: 0;
+      bottom: 38px;
+      padding: 9px;
+      background: var(--paper);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      transform: rotate(3deg);
+    }
+
+    .aviation-card img {
+      border-radius: 12px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    .aviation-card p {
+      margin: 9px 5px 2px;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+    }
+
+    .flower {
+      position: absolute;
+      color: var(--accent);
+      opacity: .55;
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .flower.one { left: -10px; top: 120px; }
+    .flower.two { right: 20px; top: 55px; }
+    .flower.three { left: 15px; bottom: 55px; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 50px;
+    }
+
+    .section-head h2 { font-size: clamp(2.5rem, 5vw, 4.2rem); }
+    .section-head p { max-width: 500px; color: var(--muted); margin: 0; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-photo {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 8px solid var(--paper);
+    }
+
+    .about-copy p { color: var(--muted); font-size: 1.02rem; }
+
+    .timeline-block {
+      margin-top: 100px;
+    }
+
+    .section-head.compact {
+      margin-bottom: 30px;
+    }
+
+    .timeline {
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 38px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-date {
+      color: var(--brown);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding-top: 4px;
+    }
+
+    .timeline-label {
+      display: inline-block;
+      margin-bottom: 7px;
+      color: var(--brown);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .timeline-content h3 {
+      font-size: 1.55rem;
+      margin: 0 0 7px;
+    }
+
+    .timeline-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .fact {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,253,249,.55);
+    }
+
+    .fact strong { display: block; margin-bottom: 3px; }
+    .fact span { color: var(--muted); font-size: .9rem; }
+
+    .skills {
+      background: var(--paper);
+      width: 100%;
+      max-width: none;
+      padding-left: max(20px, calc((100% - var(--max)) / 2));
+      padding-right: max(20px, calc((100% - var(--max)) / 2));
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .skill {
+      min-height: 190px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fffaf5;
+    }
+
+    .skill-number {
+      color: var(--brown);
+      font-weight: 700;
+      font-size: .75rem;
+    }
+
+    .skill h3 { font-size: 1.45rem; margin: 35px 0 10px; }
+    .skill p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(83,61,43,.05);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-image {
+      height: 330px;
+      background: #eee5dc;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+
+    .project:hover .project-image img { transform: scale(1.03); }
+
+    .project-body { padding: 27px; }
+    .project-meta {
+      color: var(--brown);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 700;
+    }
+
+    .project h3 { font-size: 1.8rem; margin: 9px 0; }
+    .project p { color: var(--muted); margin: 0 0 18px; font-size: .92rem; }
+
+    .project-link {
+      font-weight: 700;
+      color: var(--brown-dark);
+      font-size: .88rem;
+    }
+
+    .contact {
+      padding-bottom: 70px;
+    }
+
+    .contact-card {
+      background: var(--brown-dark);
+      color: white;
+      border-radius: 32px;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::after {
+      content: "✳";
+      position: absolute;
+      right: 40px;
+      top: 15px;
+      font-size: 130px;
+      opacity: .08;
+    }
+
+    .contact-card h2 { font-size: clamp(2.7rem, 5vw, 4.8rem); }
+    .contact-card p { color: #eadfd5; max-width: 600px; }
+
+    .contact-list {
+      align-self: center;
+      display: grid;
+      gap: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-list a {
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+      font-weight: 600;
+    }
+
+    footer {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+      padding: 22px 0 35px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    @media (max-width: 1050px) {
+      .project-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 65px; }
+      .hero-visual { min-height: 480px; }
+      .about-grid, .contact-card { grid-template-columns: 1fr; }
+      .skill-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-grid { grid-template-columns: 1fr; }
+      .contact-card { padding: 40px 30px; }
+    }
+
+    @media (max-width: 650px) {
+      section { padding: 75px 0; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 18px 20px 24px;
+        background: var(--cream);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 8px; }
+      .nav-cta { text-align: center; }
+      .nav-toggle { display: block; }
+      .hero h1 { font-size: clamp(3rem, 15vw, 5rem); }
+      .hero-visual { min-height: 420px; }
+      .hero-visual::before { width: 330px; height: 330px; right: 0; }
+      .portrait { width: 76%; }
+      .aviation-card { width: 155px; right: 0; bottom: 20px; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 18px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+      .timeline-block { margin-top: 75px; }
+      .facts, .skill-grid { grid-template-columns: 1fr; }
+      .project-image { height: 250px; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#home">Shiela <span>Marie</span></a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">Aerospace Engineering Portfolio</div>
+        <h1>Designing ideas into <span>airworthy</span> work.</h1>
+        <p class="hero-sub">
+          I’m <strong>Shiela Marie Mutia</strong>, an aerospace engineer focused on
+          3D modelling, engineering design, simulation, and aircraft-related projects.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#projects">View my work</a>
+          <a class="button secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Profile images">
+        <span class="flower one">✿</span>
+        <span class="flower two">✽</span>
+        <span class="flower three">✿</span>
+        <img class="portrait" src="grad pic.jpg" alt="Shiela Marie Mutia">
+        <div class="aviation-card">
+          <img src="me n aircraft.jpg" alt="Shiela Marie Mutia beside an aircraft">
+          <p>ENGINEERING • AVIATION • DESIGN</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">01 / About Me</div>
+          <h2>Aerospace,<br>curiosity & craft.</h2>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div>
+          <img class="about-photo" src="experience.jpg" alt="Shiela Marie Mutia">
+        </div>
+
+        <div class="about-copy">
+          <p>
+            Hi! I'm Shiela Marie Mutia, an Aerospace Engineering student with a
+            passion for flight and space exploration. I have always been fascinated
+            by the mechanics of how things work and run.
+          </p>
+
+          <p>
+            In my academic journey, I have gained knowledge in aerodynamics,
+            propulsion systems, and structural analysis. I enjoy working on
+            projects that challenge my problem-solving skills and allow me to
+            apply theoretical concepts in practical scenarios.
+          </p>
+
+          <p>
+            Some of my skills include proficiency in SolidWorks design and
+            simulation as well as strong analytical and teamwork abilities.
+          </p>
+
+          <div class="facts">
+            <div class="fact">
+              <strong>Field</strong>
+              <span>Aerospace Engineering</span>
+            </div>
+            <div class="fact">
+              <strong>Core Skill</strong>
+              <span>SOLIDWORKS Design & Simulation</span>
+            </div>
+            <div class="fact">
+              <strong>Technical Interests</strong>
+              <span>Aerodynamics · Propulsion · Structures</span>
+            </div>
+            <div class="fact">
+              <strong>Professional Strengths</strong>
+              <span>Problem Solving · Analysis · Teamwork</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-block">
+        <div class="section-head compact">
+          <div>
+            <div class="eyebrow">Education</div>
+            <h2>Academic journey.</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">2022 — 2026</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Bachelor's Degree</span>
+              <h3>Bachelor of Science in Aerospace Engineering</h3>
+              <p>Batangas State University - The National Engineering University</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">2020 — 2022</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Senior High School</span>
+              <h3>Science, Technology, Engineering, and Mathematics (STEM) Strand</h3>
+              <p>Dr. Juan A. Pastor Integrated National High School</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">2016 — 2020</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Junior High School</span>
+              <h3>Junior High School</h3>
+              <p>LCC Silvercrest School</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="timeline-block">
+        <div class="section-head compact">
+          <div>
+            <div class="eyebrow">Training & Seminars</div>
+            <h2>Learning beyond<br>the classroom.</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">Aug 2025 — Oct 2025</div>
+            <div class="timeline-content">
+              <span class="timeline-label">On-The-Job Training</span>
+              <h3>On-The-Job Training</h3>
+              <p>Advance Aviation Services</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">September 2025</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Workshop</span>
+              <h3>PINAS Batangas Workshop</h3>
+              <p>Philippine Space Agency</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">August 2025</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Data Science / Satellite Imaging</span>
+              <h3>Strategic Education Towards Excellence in Data Science (SEEDS) Program: Satellite Image Processing and Mapping</h3>
+              <p>Digital Transformation Center</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">June 2025</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Occupational Safety</span>
+              <h3>Basic Occupational Safety and Hazard SO2</h3>
+              <p>1Beso</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">November 2024</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Aviation Operations</span>
+              <h3>Flight Planning & Dispatch</h3>
+              <p>Advance Aviation Institute</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills" id="skills">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">02 / Capabilities</div>
+          <h2>What I work with.</h2>
+
+      <div class="skill-grid">
+        <article class="skill">
+          <span class="skill-number">01</span>
+          <h3>CAD & Modelling</h3>
+          <p>SOLIDWORKS, 3D part modelling, assemblies, aircraft structures and mechanical components.</p>
+        </article>
+        <article class="skill">
+          <span class="skill-number">02</span>
+          <h3>Simulation</h3>
+          <p>Engineering simulation and analysis used to evaluate design concepts and performance.</p>
+        </article>
+        <article class="skill">
+          <span class="skill-number">03</span>
+          <h3>Aircraft Design</h3>
+          <p>Airframe concepts, wings, empennage, UAV configurations and aircraft-related coursework.</p>
+        </article>
+        <article class="skill">
+          <span class="skill-number">04</span>
+          <h3>Engineering Projects</h3>
+          <p>Experimental platforms, wind-tunnel-related work, rocket testing, and multidisciplinary design projects.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">03 / My Projects</div>
+          <h2>Projects & models.</h2>
+        </div>
+        <p>
+         
+        </p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project">
+          <div class="project-image">
+            <img src="wings CAD.png" alt="CAD model of Cessna 208 aircraft wings">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Aircraft Structures / CAD</div>
+            <h3>Aircraft Wings</h3>
+            <p>
+              This is a CAD model of aircraft wings of a Cessna 208, built as part
+              of my aerospace engineering coursework. The model features the
+              internal structure of the wings and their attachment points.
+            </p>
+            <a class="project-link" href="wings.html">See Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-image">
+            <img src="fuselage CAD.png" alt="CAD model of an aircraft fuselage">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Aircraft Structures / Commissioned</div>
+            <h3>Aircraft Fuselage</h3>
+            <p>
+              This is a CAD model of an aircraft fuselage, built as a commissioned
+              project. The model includes the main body structure and key components.
+            </p>
+            <a class="project-link" href="fuselage.html">See Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-image">
+            <img src="stand CAD.png" alt="CAD model of a wind tunnel stand">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Experimental Equipment / CAD</div>
+            <h3>Wind Tunnel Stand</h3>
+            <p>
+              This is a CAD model of a wind tunnel stand, built for experimental
+              purposes. The model is designed to hold a cylindrical test section,
+              with dimensions selected to accommodate the requirements of the
+              experiments.
+            </p>
+            <a class="project-link" href="wind tunnel stand.html">See Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-image">
+            <img src="rocket.png" alt="CAD model of a rocket assembly">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Rocketry / CAD</div>
+            <h3>Rocket Assembly</h3>
+            <p>
+              This is a CAD model of a rocket assembly. The model includes the
+              main body, fins, and nose cone and was built to serve as a reference
+              for the physical construction of the rocket.
+            </p>
+            <a class="project-link" href="rocket assembly.html">See Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-image">
+            <img src="load cell.png" alt="CAD model of a static ignition platform">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Capstone / CAD / Simulation</div>
+            <h3>Static Ignition Platform</h3>
+            <p>
+              This is the CAD model of our static ignition platform. The model was
+              used as the reference for the development of our capstone project.
+              The design was also simulated to validate its performance through
+              analyses such as stress distribution, displacement, and factor of safety.
+            </p>
+            <a class="project-link" href="load cell.html">See Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-image">
+            <img src="D.png" alt="CAD model of a wing rib">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Aircraft Structures / Personal Project</div>
+            <h3>Wing Rib</h3>
+            <p>
+              This is a CAD model of a wing rib, designed for a DIY remote-controlled
+              aircraft. The model is one of many components that make up the wing structure.
+            </p>
+            <a class="project-link" href="D.html">See Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-image">
+            <img src="SASI new.png" alt="CAD model of a mini wind tunnel">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Aerodynamics / Course Project</div>
+            <h3>Mini Wind Tunnel</h3>
+            <p>
+              This is a CAD model of a mini wind tunnel, designed to serve as the
+              reference for a course group project. The model is intended to
+              demonstrate principles of fluid dynamics and aerodynamics in a
+              compact and accessible format.
+            </p>
+            <a class="project-link" href="Sasi new.html">See Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-image">
+            <img src="UAVD.png" alt="CAD model of an unmanned aerial vehicle">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">UAV / Aircraft Design</div>
+            <h3>Unmanned Aerial Vehicle Design</h3>
+            <p>
+              This is a CAD model of an unmanned aerial vehicle design, created as
+              part of a university course project. The model includes the airframe,
+              propulsion system, and control surfaces.
+            </p>
+            <a class="project-link" href="UAVD assem.html">See Project →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-image">
+            <img src="empennage.png" alt="CAD model of an aircraft empennage">
+          </div>
+          <div class="project-body">
+            <div class="project-meta">Aircraft Structures / CAD</div>
+            <h3>Empennage</h3>
+            <p>
+              This is a CAD model of an empennage, which is the tail section of an
+              aircraft. The model includes the vertical stabilizer and horizontal
+              stabilizer.
+            </p>
+            <a class="project-link" href="empennage.html">See Project →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-card">
+        <div>
+          <div class="eyebrow" style="color:#d9b893;">04 / Contact</div>
+          <h2>Let’s build<br>something that flies.</h2>
+          <p>
+            For project inquiries, collaborations, engineering opportunities, or
+            simply to connect, feel free to reach out through the contact details below.
+          </p>
+        </div>
+        <div class="contact-list">
+          <a href="mailto:shielamariemutia@gmail.com">shielamariemutia@gmail.com</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn · Shiela Marie Mutia</a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook · Shiela Marie Mutia</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Shiela Marie Mutia</span>
+    <span>Portfolio · Aerospace Engineering</span>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector(".nav-toggle");
+    const links = document.querySelector(".nav-links");
+
+    toggle.addEventListener("click", () => {
+      const open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open);
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        links.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+</html>
